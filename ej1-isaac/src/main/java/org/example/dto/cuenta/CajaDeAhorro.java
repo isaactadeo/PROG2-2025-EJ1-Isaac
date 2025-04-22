@@ -17,6 +17,7 @@ public class CajaDeAhorro extends Cuenta implements IGestionSaldo {
     @Override
     public synchronized boolean quitarSaldo(double monto) {
         if (monto <= 0) return false;
+        if (monto > saldo) return false;
         saldo -= monto;
         registrarOperacion();
         return true;
